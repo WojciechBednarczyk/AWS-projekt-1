@@ -75,6 +75,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
   makeMove(i: number, j: number) {
     if (this.isMoveValid()) {
+      this.board[i][j]=this.game.currentMove;
       const move: Move = {
         gameId: this.game.gameId,
         playerName: localStorage.getItem('username')!,
@@ -92,8 +93,21 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   private isMoveValid() {
+    if (this.game.winner) {
+      return false
+    }
     if (this.game.currentMove === "O" && this.game.playerO === localStorage.getItem('username')) {
       return true;
     } else return this.game.currentMove === "X" && this.game.playerX === localStorage.getItem('username');
+  }
+
+  format(status: string) : string {
+    if (status === 'WAITING_FOR_PLAYERS') {
+      return 'Oczekiwanie na wszystkich graczy'
+    } else if (status === 'IN_PROGRESS') {
+      return 'Gra w toku'
+    } else {
+      return 'Gra skonczona'
+    }
   }
 }

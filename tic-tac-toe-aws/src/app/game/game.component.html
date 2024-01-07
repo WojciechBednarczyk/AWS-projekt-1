@@ -1,5 +1,6 @@
 <div class="center-container">
   <div class="player-info">
+    <h2>Status gry: {{format(game.status)}}</h2>
     <div class="player-names">
       <h2>Gracz 'X': {{ game.playerX }}</h2>
       <h2 class="player-name-spacer">VS</h2>
@@ -15,7 +16,7 @@
       </div>
     </div>
     <div *ngIf="game.winner">
-      <h3>Wygrał gracz {{ game.winner }}!</h3>
+      <h3>Gra skończona! Wygrał gracz {{ game.winner }}!</h3>
     </div>
   </div>
 </div>
