@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>pl.edu.pwr</groupId>
-	<artifactId>backend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>Tic-Tac-Toe</artifactId>
+	<version>1.0</version>
 	<name>backend</name>
 	<description>backend</description>
 	<properties>
