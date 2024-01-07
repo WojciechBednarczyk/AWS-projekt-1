@@ -1,15 +1,10 @@
-FROM node:16-alpine AS build
-
-WORKDIR /app
-
-COPY package*.json ./
-
+# Stage 1: Compile and Build angular codebase # Use official node image as the base image
+FROM node:latest as build
+WORKDIR /usr/local/app
+COPY ./ /usr/local/app/
 RUN npm install
-
-COPY . .
-
 RUN npm run build
-
-EXPOSE 4200
-
-CMD ["npm", "start"]
+# Stage 2: Serve app with nginx server # Use official nginx image as the base image
+FROM nginx:lates
+COPY --from=build /usr/local/app/dist/tic-tac-toe-aws /usr/share/nginx/html
+EXPOSE 80

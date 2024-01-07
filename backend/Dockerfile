@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:21.0.1_12-jdk
 
 VOLUME /tmp
 EXPOSE 8080
