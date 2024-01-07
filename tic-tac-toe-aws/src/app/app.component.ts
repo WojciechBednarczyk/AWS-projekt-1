@@ -27,6 +27,7 @@ export class AppComponent {
           }
           if (accessToken) {
             localStorage.setItem('access_token', accessToken);
+            this.authService.setUsername(accessToken);
           }
           window.location.href = window.location.origin;
         }

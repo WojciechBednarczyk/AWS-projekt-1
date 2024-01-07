@@ -4,6 +4,7 @@ public record MoveDto(
         Integer positionX,
         Integer positionY,
         Long gameId,
-        String playerName
+        String playerName,
+        String stamp
 ) {
 }

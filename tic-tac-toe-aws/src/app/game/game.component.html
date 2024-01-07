@@ -1,24 +1,21 @@
 <div class="center-container">
   <div class="player-info">
     <div class="player-names">
-      <h2>Gracz 'X': {{ playerXName }}</h2>
+      <h2>Gracz 'X': {{ game.playerX }}</h2>
       <h2 class="player-name-spacer">VS</h2>
-      <h2>Gracz 'O': {{ playerOName }}</h2>
+      <h2>Gracz 'O': {{ game.playerO }}</h2>
     </div>
   </div>
 
-  <h2>Ruch gracza: {{ currentPlayer }}</h2>
+  <h2>Kolejny ruch: {{game.currentMove}}</h2>
   <div class="board">
     <div *ngFor="let row of board; let i = index" class="row">
       <div *ngFor="let cell of row; let j = index" class="cell" (click)="makeMove(i, j)">
         {{ cell }}
       </div>
     </div>
-    <div *ngIf="winner">
-      <h3>Wygrał gracz {{ winner }}!</h3>
-    </div>
-    <div *ngIf="!winner && isBoardFull()">
-      <h3>Remis!</h3>
+    <div *ngIf="game.winner">
+      <h3>Wygrał gracz {{ game.winner }}!</h3>
     </div>
   </div>
 </div>

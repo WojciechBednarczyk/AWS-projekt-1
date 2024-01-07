@@ -36,4 +36,6 @@ public class Game {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "winner")
     private Player winner;
+
+    private char currentMove;
 }

@@ -3,12 +3,14 @@ package pl.edu.pwr.backend.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
 public class Move {
 
     @Id
@@ -26,4 +28,6 @@ public class Move {
     private Integer positionX;
 
     private Integer positionY;
+
+    private char stamp;
 }

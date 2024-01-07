@@ -2,6 +2,7 @@ package pl.edu.pwr.backend.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.stream.Stream;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
 public class Player {
 
     @Id
