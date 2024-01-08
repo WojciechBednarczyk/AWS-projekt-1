@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./tic-tac-toe-aws
+    hostname: frontend
+    ports:
+      - "80:80"
+
+  backend:
+    build: ./backend
+    hostname: backend
+    ports:
+      - "8080:8080"
