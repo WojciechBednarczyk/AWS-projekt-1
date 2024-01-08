@@ -1,0 +1,16 @@
+<div class="table-container">
+  <table>
+    <thead>
+    <tr>
+      <th>Gracz</th>
+      <th>Gry wygrane</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let leader of leaders">
+      <td>{{ leader.username }}</td>
+      <td>{{ leader.gamesWon }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

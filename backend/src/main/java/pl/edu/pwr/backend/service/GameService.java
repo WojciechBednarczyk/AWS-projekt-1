@@ -7,12 +7,16 @@ import pl.edu.pwr.backend.mapper.MoveMapper;
 import pl.edu.pwr.backend.model.Game;
 import pl.edu.pwr.backend.model.GameStatus;
 import pl.edu.pwr.backend.model.Move;
+import pl.edu.pwr.backend.model.Player;
 import pl.edu.pwr.backend.model.dto.GameDto;
+import pl.edu.pwr.backend.model.dto.LeaderDto;
 import pl.edu.pwr.backend.model.dto.MoveDto;
 import pl.edu.pwr.backend.repository.GameRepository;
 import pl.edu.pwr.backend.repository.MoveRepository;
 import pl.edu.pwr.backend.repository.PlayerRepository;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -122,5 +126,14 @@ public class GameService {
         var game = gameRepository.findById(gameId).orElseThrow();
         var winner = Objects.isNull(game.getWinner()) ? null : game.getWinner().getPlayerName();
         return new GameDto(game.getGameId(), game.getPlayerO().getPlayerName(), game.getPlayerX().getPlayerName(), winner, game.getStatus().toString(), String.valueOf(game.getCurrentMove()), MoveMapper.mapMovesToDto(game.getMoves()));
+    }
+
+    public List<LeaderDto> getLeaderboard() {
+        List<Player> players = playerRepository.findAll();
+
+        return players.stream()
+                .map(player -> new LeaderDto(player.getWonGames().size(),player.getPlayerName()))
+                .sorted(Comparator.comparing(LeaderDto::gamesWon).reversed())
+                .toList();
     }
 }
