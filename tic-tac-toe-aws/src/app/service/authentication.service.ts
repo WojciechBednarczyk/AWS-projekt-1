@@ -8,7 +8,7 @@ export class AuthenticationService {
   private clientId = '330gdd6e15n9uoi1up7tc0nqkl';
 
   initiateLogin(): void {
-    const loginUrl = `https://tic-tac-toe-pwr.auth.us-east-1.amazoncognito.com/oauth2/authorize?client_id=${this.clientId}&response_type=token&scope=email+openid+profile&redirect_uri=http%3A%2F%2Flocalhost%3A4200`;
+    const loginUrl = `https://tic-tac-toe-pwr.auth.us-east-1.amazoncognito.com/oauth2/authorize?client_id=${this.clientId}&response_type=token&scope=email+openid+profile&redirect_uri=https%3A%2F%2Fbit.ly%2Ftic-tac-toe-pwr`;
     window.location.href = loginUrl;
   }
 
@@ -27,7 +27,7 @@ export class AuthenticationService {
     localStorage.removeItem('id_token');
     localStorage.removeItem('access_token');
     localStorage.removeItem('username');
-    window.location.href = 'https://tic-tac-toe-pwr.auth.us-east-1.amazoncognito.com/logout?client_id=330gdd6e15n9uoi1up7tc0nqkl&logout_uri=http%3A%2F%2Flocalhost%3A4200'
+    window.location.href = 'https://tic-tac-toe-pwr.auth.us-east-1.amazoncognito.com/logout?client_id=330gdd6e15n9uoi1up7tc0nqkl&logout_uri=https%3A%2F%2Fbit.ly%2Ftic-tac-toe-pwr'
   }
 
   setUsername(accessToken: string) {
