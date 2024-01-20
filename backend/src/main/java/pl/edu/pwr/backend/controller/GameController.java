@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @Slf4j
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://localhost:4200", "http://44.222.13.165/"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://44.222.13.165"})
 @RequestMapping("/game")
 public class GameController {
 
@@ -24,13 +24,13 @@ public class GameController {
     private final SimpMessagingTemplate simpMessagingTemplate;
 
     @PostMapping("/connect/random")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://44.222.13.165/"})
+    @CrossOrigin(origins = {"http://localhost:4200", "http://44.222.13.165"})
     public ResponseEntity<GameDto> connectRandom(@RequestParam String username) {
         return ResponseEntity.ok(gameService.connectToRandomGame(username));
     }
 
     @PostMapping("/move")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://44.222.13.165/"})
+    @CrossOrigin(origins = {"http://localhost:4200", "http://44.222.13.165"})
     public ResponseEntity<GameDto> makeMove(@RequestBody MoveDto move) {
         GameDto game = gameService.makeMove(move);
 
@@ -39,13 +39,13 @@ public class GameController {
     }
 
     @GetMapping("/board")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://44.222.13.165/"})
+    @CrossOrigin(origins = {"http://localhost:4200", "http://44.222.13.165"})
     public ResponseEntity<GameDto> getBoard(@RequestParam Long gameId) {
         return ResponseEntity.ok(gameService.getBoard(gameId));
     }
 
     @GetMapping("/leaderboard")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://44.222.13.165/"})
+    @CrossOrigin(origins = {"http://localhost:4200", "http://44.222.13.165"})
     public ResponseEntity<List<LeaderDto>> getLeaderbord() {
         return ResponseEntity.ok(gameService.getLeaderboard());
     }
