@@ -8,7 +8,7 @@ import {Move} from "../game/move";
 })
 export class RestService {
 
-  private apiUrl = 'http://localhost:8080/game/';
+  private apiUrl = 'http://test-docker-env.eba-cq9fqnbb.us-east-1.elasticbeanstalk.com:8080/game/';
 
   constructor(private http: HttpClient) { }
 
